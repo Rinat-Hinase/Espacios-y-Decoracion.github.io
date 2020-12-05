@@ -1,0 +1,95 @@
+/*--EDITANDO-MARGENES-POR-DEFECTO--*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'open sans', 'roboto', sans-serif;
+}
+
+
+/*--EDITANDO-TITULO----------------*/
+.titulo{
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/*--EDITANDO-FORMULARIO------------*/
+.formulario{
+    width: 460px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+/*--EDITANDO-INPUTS----------------*/
+.cajas{
+    width: 100%;
+    padding: 15px;
+    border-radius: 2px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 15px;
+    border-left: 20px solid #79b7c9;
+    border-right: 20px solid #79b7c9;
+    transition: all .3s ease;
+}
+
+.cajas:hover, .cajas:focus{
+    border-left: 20px solid #e28282;
+    border-right: 20px solid #e28282;
+}
+
+/*--EDITANDO-TERMINOS--------------*/
+.termino-1{
+    text-align: center;
+    color: #fff;
+}
+
+.termino-2{
+    color: #e28282;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+
+.termino-2:hover{
+    color: #227184;
+}
+
+/*--EDITANDO-BOTON-REGISTRAR-------*/
+.btn{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 2px;
+    background: #79b7c9;
+    color: #fff;
+    font-size: 15px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.btn:hover{
+    background: #5593a5;
+}
+
+/*--OTRA-OPCION--------------------*/
+.otra-opcion{
+    text-align: center;
+    color: #e28282;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+
+.otra-opcion:hover{
+    color: #227184;
+}
+
+
+
+
+
+
