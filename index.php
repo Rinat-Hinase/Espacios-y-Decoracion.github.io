@@ -43,7 +43,7 @@
 <!--Categorias-->
 
 <div class="container-categorias">
-    <div class="T-Categorias">CATEGORIAS</div>
+    <div class="T-Categorias">CATEGORÍAS</div>
     <div class="categorias">
         <?php $categorias_menu = conseguircategorias($db);
         if (!empty($categorias_menu) && mysqli_num_rows($categorias_menu) >= 1) : ?>
@@ -63,24 +63,26 @@
         <?php else : ?>
             <h1> No hay categorias </h1>
         <?php endif; ?>
-        <div class="categoria">
-            <a href="crearcategoria.php">
-                <div class="ctn-img">
-                    <div class="ctn-info">
-                        <h1>Agregar<h1>
+        <?php if (isset($_SESSION['administradora6155560'])) : ?>
+            <div class="categoria">
+                <a href="crearcategoria.php">
+                    <div class="ctn-img">
+                        <div class="ctn-info">
+                            <h1>Agregar<h1>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="categoria">
-            <a href="eliminarcategoria.php">
-                <div class="ctn-img">
-                    <div class="ctn-info">
-                        <h1>Eliminar<h1>
+                </a>
+            </div>
+            <div class="categoria">
+                <a href="eliminarcategoria.php">
+                    <div class="ctn-img">
+                        <div class="ctn-info">
+                            <h1>Eliminar<h1>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 <div class="clearfix"></div>
@@ -91,7 +93,7 @@
         <div class="T-Categoria"><?= $categoria_slider['nombre'] ?></div>
         <section class="slider">
             <ul class="autoWidth" class="cs-hidden">
-            <?php $categoriaseleccionada = $categoria_slider['id']; ?>
+                <?php $categoriaseleccionada = $categoria_slider['id']; ?>
                 <?php $categorias_sliders = conseguirEntradas($db, $categoriaseleccionada); ?>
                 <?php if (!empty($categorias_sliders) && mysqli_num_rows($categorias_sliders) >= 1) : ?>
                     <?php while ($categoria_sliders = mysqli_fetch_assoc($categorias_sliders)) : ?>
@@ -136,34 +138,36 @@
 
 
 <!-- Seleccion de categorias -->
-<div class="T-Categoria">Añada una categoria </div>
-<?php echo isset($_SESSION['errores']) ? MostrarError($_SESSION['errores'], 'agregar') : ''; ?>
-<?php echo isset($_SESSION['errores']) ? MostrarError($_SESSION['errores'], 'eliminar') : ''; ?>
-<?php echo isset($_SESSION['aceptadas']) ? MostrarAceptadas($_SESSION['aceptadas'], 'agregar') : ''; ?>
-<?php echo isset($_SESSION['aceptadas']) ? MostrarAceptadas($_SESSION['aceptadas'], 'eliminar') : ''; ?>
-<div id="ctn-btns-alls">
-    <form action="guardarseleccionado.php" method="post">
-        <select class="custom-select" name="seleccionado">
-            <option selected>Agregar categoria</option>
-            <?php $categorias_elegir = ConseguirCategorias($db); ?>
-            <?php if (!empty($categorias_elegir) && mysqli_num_rows($categorias_elegir) >= 1) : ?>
-                <?php while ($categoria_elegir = mysqli_fetch_assoc($categorias_elegir)) : ?>
-                    <option value="<?= $categoria_elegir['id'] ?>"><?= $categoria_elegir['nombre'] ?></option>
-                <?php endwhile; ?>
-            <?php else : ?>
-                <option value="">No hay categorias</option>
-            <?php endif; ?>
-        </select>
-        <div id="ctn-btns">
-            <div class="agregar-cat"><input type="submit" name="Agregar" class="btn btn-outline-success" value="Agregar" />
+<?php if (isset($_SESSION['administradora6155560'])) : ?>
+    <div class="T-Categoria">Añada una categoría </div>
+    <?php echo isset($_SESSION['errores']) ? MostrarError($_SESSION['errores'], 'agregar') : ''; ?>
+    <?php echo isset($_SESSION['errores']) ? MostrarError($_SESSION['errores'], 'eliminar') : ''; ?>
+    <?php echo isset($_SESSION['aceptadas']) ? MostrarAceptadas($_SESSION['aceptadas'], 'agregar') : ''; ?>
+    <?php echo isset($_SESSION['aceptadas']) ? MostrarAceptadas($_SESSION['aceptadas'], 'eliminar') : ''; ?>
+    <div id="ctn-btns-alls">
+        <form action="guardarseleccionado.php" method="post">
+            <select class="custom-select" name="seleccionado">
+                <option selected>Agregar categoría</option>
+                <?php $categorias_elegir = ConseguirCategorias($db); ?>
+                <?php if (!empty($categorias_elegir) && mysqli_num_rows($categorias_elegir) >= 1) : ?>
+                    <?php while ($categoria_elegir = mysqli_fetch_assoc($categorias_elegir)) : ?>
+                        <option value="<?= $categoria_elegir['id'] ?>"><?= $categoria_elegir['nombre'] ?></option>
+                    <?php endwhile; ?>
+                <?php else : ?>
+                    <option value="">No hay categorías</option>
+                <?php endif; ?>
+            </select>
+            <div id="ctn-btns">
+                <div class="agregar-cat"><input type="submit" name="Agregar" class="btn btn-outline-success" value="Agregar" />
+                </div>
+                <div class="eliminar-cat"><input type="submit" name="Eliminar" class="btn btn-outline-danger" value="Eliminar" />
+                </div>
             </div>
-            <div class="eliminar-cat"><input type="submit" name="Eliminar" class="btn btn-outline-danger" value="Eliminar" />
-            </div>
-        </div>
-    </form>
-    <?php BorrarErrores(); ?>
-    <?php BorrarAceptadas(); ?>
-</div>
+        </form>
+        <?php BorrarErrores(); ?>
+        <?php BorrarAceptadas(); ?>
+    </div>
+<?php endif; ?>
 <!-- Seleccion de categorias -->
 </div>
 <!-- FOOTER -->

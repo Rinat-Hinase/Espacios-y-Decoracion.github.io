@@ -18,6 +18,9 @@ function BorrarAceptadas(){
     if(isset($_SESSION['aceptadas'])){
         $_SESSION['aceptadas'] = null;
     }
+    if(isset($_SESSION['aceptadas_entrada'])){
+        $_SESSION['aceptadas_entrada'] = null;
+    }
 }
 function BorrarErrores(){
     $borrado = false;
@@ -28,6 +31,18 @@ function BorrarErrores(){
 
     if(isset($_SESSION['errores_entrada'])){
         $_SESSION['errores_entrada'] = null;
+        $borrado = true;
+    }
+    if(isset($_SESSION['error_login'])){
+        $_SESSION['error_login'] = null;
+        $borrado = true;
+    }
+    if(isset($_SESSION['email'])){
+        $_SESSION['email'] = null;
+        $borrado = true;
+    }
+    if(isset($_SESSION['pass'])){
+        $_SESSION['pass'] = null;
         $borrado = true;
     }
 
@@ -60,11 +75,9 @@ function ConseguirCategoria($conexion){
     return $resultado;
 }
 
-function conseguirEntrada($conexion, $id){
-    $sql = "SELECT e.*, c.nombre AS 'categoria', CONCAT(u.nombre, ' ', u.apellidos) AS usuario FROM entradas e ".
-    "INNER JOIN categorias c ON e.categoria_id = c.id ".
-    "INNER JOIN usuarios u ON e.usuario_id = u.id ".
-    "WHERE e.id = $id";
+function conseguirEntrada($conexion, $titulo = null){
+    $sql = "SELECT e.* FROM entradas e ".
+    "WHERE e.titulo = '$titulo'";
     $entrada = mysqli_query($conexion, $sql);
 
     $resultado = array();
@@ -91,12 +104,16 @@ function conseguirEntradas($conexion, $categoria = null, $busqueda = null){
 
     return $resultado;
 }
-function conseguirTodasEntradas($conexion, $Limit = null, $categoria = null, $busqueda = null){
+function conseguirTodasEntradas($conexion, $Limit = null, $categoria = null, $busqueda = null, $titulo = null){
     $sql = "SELECT e.*, c.id, nombre AS 'categoria' FROM entradas e ".
     "INNER JOIN categorias c ON  e.categoria_id = c.id ";
 
     if(!empty($categoria)){
         $sql .= "WHERE c.nombre = '$categoria'";
+    }
+
+    if(!empty($titulo)){
+        $sql .= "WHERE e.titulo = '$titulo'";
     }
 
     if(!empty($busqueda)){
@@ -107,7 +124,7 @@ function conseguirTodasEntradas($conexion, $Limit = null, $categoria = null, $bu
     if($Limit){
 
         //SQL = SQL. "LIMIT 4"
-        $sql .= " LIMIT 4";
+        $sql .= " LIMIT 1";
 
     }
     $entradas = mysqli_query($conexion, $sql);

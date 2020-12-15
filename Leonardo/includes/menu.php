@@ -5,10 +5,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Diseño web tipo blog - para practica</title>
+    <title>Espacios | Decoración</title>
+    <link rel="shortcut icon" type="image/*" href="leonardo/img/bustodeldavid.jpg"/>
 
     <link rel="stylesheet" href="leonardo/bobstrap/css/bootstrap.css">
     <link rel="stylesheet" href="leonardo/css/principal.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
     <meta http-equiv="X-UA_Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="leonardo/css/lightslider.css">
@@ -32,6 +35,11 @@
                 <ul>
                     <li class="menu-selected"><a href="index.php" class="text-menu-selected" class="negro"> <i class="fas fa-home"></i> Inicio</a></li>
                     <li><a href="Todos-productos.php"> <i class="fab fa-youtube"> </i>Todos</a></li>
+                    <?php if (isset($_SESSION['usuario'])) : ?>
+                                <li><a href="cerrar.php"><i class="icons8-llave"></i>Cerrar sesión</a></li>
+                            <?php else : ?>
+                                <li><a href="login2.php"><i class="icons8-llave"></i>Registrarse</a></li>
+                            <?php endif; ?>
                     <li><a href="Todos-productos.php"> <i class="fab fa-file-alt"> </i>&nbsp;&nbsp;&nbsp;Clasificaciones&nbsp;&nbsp;&nbsp;</a>
                     <ul>
                             <?php

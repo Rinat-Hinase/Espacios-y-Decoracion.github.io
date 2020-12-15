@@ -288,6 +288,21 @@ footer .redes-footer .fa-instagram:hover{
     color: #8e8e8e;
     font-weight: 500;
 }
+.container-footer footer .create {
+    color: black;
+    margin-top: 10px;
+    font-weight: 300;
+    transition: all 500ms;
+}
+
+.container-footer footer .create:hover {
+    color: #1bcee6;
+    background: #FFFFFF;
+    text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+    color: #1bcee6;
+    background: #FFFFFF;
+    transition: all 500ms;
+}
 
 /* Responsive Design - adaptable a dispositivos moviles*/
 

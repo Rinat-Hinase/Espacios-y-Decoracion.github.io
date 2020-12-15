@@ -1,0 +1,190 @@
+.ptd-alls{
+    width: 100%;
+}
+.ptd{
+    margin: 0 auto;
+}
+.ptd .title-ptd{
+    position: relative;
+    font-size: 40px;
+    margin: 20px auto;
+    font-weight: bold;
+    text-align: center;
+}
+.horver{
+    margin: 20px auto 0;
+}
+.ptd-alls table,td {
+	border: 1px solid rgb(238, 238, 238);
+}
+.ptd .pr{
+    position: relative;
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 70px;
+    text-align: right;
+}
+.ptd .pr .zoom{
+    color: rgba(0, 0, 0, 0.747);
+    font-size: 25px;
+    transition: all 500ms;
+}
+.ptd .pr .zoom:hover{
+    color: rgba(0, 26, 255, 0.774);
+    font-size: 35px !important;
+    transition: all 500ms;
+}
+.ptd .code{
+    position: relative;
+    font-size: 20px;
+    text-justify: auto;
+}
+.ptd .cant{
+    position: relative;
+    font-size: 20px;
+    text-justify: auto;
+}
+.ptd .desc{
+    position: relative;
+    font-size: 20px;
+    text-justify: auto;
+}
+.ptd .fech{
+    margin-top: 100px;
+    position: relative;
+    font-size: 15px;
+    color: gray;
+    text-align: right;
+}
+
+.ptd .ctn-img{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.ptd .ctn-img img{
+    max-width: 100vh;
+    max-height: 50vh;
+}
+.gris{
+    color: gray;
+}
+.centrar{
+    width: 100%;
+}
+.centrado{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+/*ZOOM */
+.light-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.9);
+    transition: transform .3s ease-in-out;
+    width: 100%;
+    height: 100vh;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+}
+.light-box img{
+    width: 100vh;
+    max-height: 100vh;
+}
+.light-box:target{
+    transform: scale(1);
+}
+.close{
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: #851919;
+    color: #fff;
+    font-size: 40px;
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+}
+ /*--EDITANDO-FORMULARIO------------*/
+ .formulario {
+    width: 460px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 80px;
+}
+
+/*--EDITANDO-INPUTS----------------*/
+.cajas {
+    width: 100%;
+    padding: 15px;
+    border-radius: 2px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 15px;
+    border-left: 20px solid #79b7c9;
+    border-right: 20px solid #79b7c9;
+    transition: all .3s ease;
+}
+
+.cajas:hover,
+.cajas:focus {
+    border-left: 20px solid black;
+    border-right: 20px solid black;
+}
+
+/*--EDITANDO-TERMINOS--------------*/
+.termino-1 {
+    text-align: center;
+    color: #fff;
+}
+
+.termino-2 {
+    color: #e28282;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+
+.termino-2:hover {
+    color: #227184;
+}
+
+.imagen{
+    width: 100%;
+}
+#preview{
+    position: relative;
+    width: 40vh;
+    max-height: 90vh;
+}
+
+input[type='file']{
+    display: none;
+}
+
+label[for='file']{
+    color: gray;
+}
+#sr-form, .img-prew{
+    width: 750px;
+    margin: 0 auto;
+}
+  @supports(object-fit: cover){
+      .ptd .ctn-img img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+  }

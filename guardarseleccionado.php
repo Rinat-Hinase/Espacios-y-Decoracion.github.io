@@ -20,11 +20,11 @@ if (isset($_POST['Agregar'])) {
         $aceptada['agregar'] = 'Agregada con éxito'; 
         $_SESSION['aceptadas'] = $aceptada;
     } else if (empty($isset_categoria)){
-        $errores['agregar'] = 'Categoria no seleccionada'; 
+        $errores['agregar'] = 'Categoría no seleccionada'; 
         $_SESSION['errores'] = $errores;
     }
     else{
-        $errores['agregar'] = 'Esa categoria ya esta gregada'; 
+        $errores['agregar'] = 'Esa categoría ya está agregada'; 
         $_SESSION['errores'] = $errores;
     }
 }else if (isset($_POST['Eliminar'])) {
@@ -43,7 +43,7 @@ if (isset($_POST['Agregar'])) {
         $aceptada['eliminar'] = 'Eliminada con éxito'; 
         $_SESSION['aceptadas'] = $aceptada;
     } else {
-        $errores['eliminar'] = 'Esa categoria no existe'; 
+        $errores['eliminar'] = 'Esa categoría no existe'; 
         $_SESSION['errores'] = $errores;
     }
 }
